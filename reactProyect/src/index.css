@@ -1,0 +1,10 @@
+.buton {
+  width: 20vw;
+  height: 3vh;
+  position: absolute;
+ margin-left: 40vw;
+ margin-top: 40vh;
+ background-color: red;
+ color: black;
+ font-size: 20px;
+}
