@@ -6,11 +6,16 @@ import AlertClock from './components/AlertClock.jsx'
 
 
 function App() {
-
+  const [time, setTime] = useState(new Date().toLocaleString());
+  const mostrarAlert = () => {alert('La fecha y hora actual es: ' + time)};
+  const cambiarHora = () => {
+      setTime(new Date().toLocaleString());
+  };
+  const click = () => {mostrarAlert(); cambiarHora()};
 
   return (
     <>
-      <div><AlertClock /></div>
+      <AlertClock onClick={click} />
     </>
   )
 }
