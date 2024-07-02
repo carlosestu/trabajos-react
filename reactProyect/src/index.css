@@ -1,5 +1,16 @@
-#tiempo {
-    font-size: 70px;
+#buton {
     margin-top: 40vh;
     margin-left: 40vw;
+    background-color: yellow;
+    width: 7vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+#texto {
+font-size: 20px;
+margin-top: 30px;
+}
+#img {
+width: 58px;
 }
