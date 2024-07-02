@@ -1,5 +1,5 @@
 import CounterDisplay from "./CounterDisplay";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Counter({cantidadRestar, reinicio}) {
     const [contador, setContador] = useState(0);
@@ -12,10 +12,14 @@ function Counter({cantidadRestar, reinicio}) {
       const reiniciar = () => {
         setContador(cifraReiniciar => cifraReiniciar = reinicio);
       };
+      useEffect(() => {
+        console.log(`Current counter value: ${contador}`);
+      }, [contador]);
     return <div>
     <button onClick={sumador} className="buton"><CounterDisplay count ={contador} /></button>;
     <button onClick={resta} className="butonResta"><h2>restar</h2></button>;
     <button onClick={reiniciar} className="butonReset"><h2>resetear</h2></button>;
     </div>
 }
+
 export default Counter;
