@@ -1,16 +1,21 @@
-#buton {
-    margin-top: 40vh;
-    margin-left: 40vw;
-    background-color: yellow;
-    width: 7vw;
-    height: 10vh;
+#form {
+    position: absolute;
+    margin-top: 10vh;
+    margin-left: 30vw;
+    background-color: green;
+    color: black;
+    width: 40vw;
+    height: 80vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
-#texto {
-font-size: 20px;
-margin-top: 30px;
+#form input {
+    background-color: red;
 }
-#img {
-width: 58px;
+#form button {
+    background-color: red;
+}
+#form #info {
+    margin-top: 30vh;
 }

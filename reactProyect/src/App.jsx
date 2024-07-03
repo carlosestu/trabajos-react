@@ -2,16 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import MouseClicker from './components/MouseClicker '
+import Welcome from './components/Welcome';
+import InteractiveWelcome from './components/InteractiveWelcome';
+import Login from './components/login';
 
 
 function App() {
 
 
   return (
-    <>
-  <MouseClicker />
-    </>
+    <div id='form'>
+    <InteractiveWelcome />;
+    <Login />;
+    </div>
   )
 }
 
