@@ -1,54 +1,30 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import LoginData from "./loginData";
 
-function Login() {
-    const [defaultData, setDefaultData] = useState({
-        userName: "",
-        password: "",
-        remember: false
-    });
-    const [formData, setFormData] = useState({
-        userName: "",
-        password: "",
-        remember: false
-    });
-    const [submittedData, setSubmittedData] = useState({
-        userName: "",
-        password: "",
-        remember: "",
-      });
-   
-    const actualizarInfo = (event) => {
-       const { name, type, value, checked } = event.target;
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: type === "checkbox" ? checked : value,
-          }));
-    };
-      const reset = (event) => {
-        event.preventDefault(); 
-        setSubmittedData(defaultData);
-        setFormData(defaultData);
-      }
-      const HandleLogin = (event) => {
-        event.preventDefault(); 
-        setSubmittedData(formData);
-      }
-    return <form onSubmit={HandleLogin}>
+function UncontrolledLogin() {
+    const formRef = useRef(null);
+    const [loginInfo, setLoginInfo] = useState(null);
+   const HandleLogin = (event) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    const username = formData.get("userName");
+    const password = formData.get("password");
+    const remember = formData.get("remember") === "on";
+    setLoginInfo({ username, password, remember });
+   }
+    
+    return <div><form ref={formRef} onSubmit={HandleLogin}>
     <h1>Login!</h1>
-    <input type="text" id="userName" placeholder="userName" name="userName" onChange={actualizarInfo} value={formData.userName}></input>
-    <input type="password" id="password" placeholder="password" name="password" onChange={actualizarInfo} value={formData.password}></input>
-    <p>remember me<input type="checkbox" id="checkbox" name="remember" onChange={actualizarInfo} checked={formData.remember}></input></p>
-    {formData.userName !== "" && formData.password !== "" ? (
-        <button type="submit">submit</button>
-    ) : null}
-    <button id="reset" onClick={reset}>Clear Form</button>
-    {submittedData.userName !== "" && submittedData.password !== "" && (
-        <LoginData Data={submittedData} />
-      )}
-      
+    <input type="text" id="userName" placeholder="userName" name="userName" ></input>
+    <input type="password" id="password" placeholder="password" name="password"></input>
+    <p>remember me<input type="checkbox" id="checkbox" name="remember"></input></p>
+   <button type="submit">submit</button>
     </form>
+    {loginInfo && <LoginData data={loginInfo} />}
+    </div>
 }
-export default Login;
+export default UncontrolledLogin;
 
-//para evitar el comportamiento por defecto del formulario, y que no se recargue la pagina al hacer submit, se usa "event.preventDefault()" esto garantizara que el form no haga nada inesperado.
+//las ventajas de usar uncontrolled components es que el codigo es algo mas simple y manejas directamente el formulario en si, 
+//pero ahi llega la desventaja, y es que de la otra manera accediendo directamente a cada input, tienes mas control sobre cada parte del formulario,
+// y si no es muy complejo es mas util hacerlo asi
