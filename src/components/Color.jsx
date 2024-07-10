@@ -3,7 +3,7 @@ import Colors from './Colors'
 function Color({color}) {
 
   return (
-    <li style={{backgroundColor: color.name}}>{color.name}</li>  
+    <li style={{backgroundColor: color.name, color: 'white'}}>{color.name}, id: {color.id}</li>  
   )
 }
 
