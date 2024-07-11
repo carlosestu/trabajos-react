@@ -1,12 +1,12 @@
 import { useState} from 'react'
 import './App.css'
-import TodoList from './components/TodoList';
+import InteractiveWelcome from './components/InteractiveWelcome';
 function App() {
 
 
   return (
     <>
-    <TodoList />
+    <InteractiveWelcome />
     </>
   )
 }
