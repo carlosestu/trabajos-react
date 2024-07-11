@@ -1,17 +1,10 @@
-.divPrincipal {
-    background-color: white;
-    border: 1px solid red;
-    border-radius: 7px;
-    width: max-content;
-    height: max-content;
-    padding: 40px;
+#tiempo {
+    font-size: xx-large;
+    display: flex;
 }
 body {
-    display:flex ;
-    height: 80vh;
+    display: flex;
     justify-content: center;
+    height: 80vh;
     align-items: center;
-}
-.divPrincipal h1{
-    cursor: pointer;
 }
