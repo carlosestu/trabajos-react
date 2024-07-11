@@ -1,0 +1,9 @@
+.buton {
+    width: max-content;
+    height: max-content;
+    margin-left: 20px;
+}
+.task {
+    display: flex;
+    flex-direction: row;
+}
