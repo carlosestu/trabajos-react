@@ -1,12 +1,12 @@
 import { useState} from 'react'
 import './App.css'
-import InteractiveWelcome from './components/InteractiveWelcome';
+import Container from './components/Container';
 function App() {
 
 
   return (
     <>
-    <InteractiveWelcome />
+    <Container title="titulo del contenedor aqui" />
     </>
   )
 }
