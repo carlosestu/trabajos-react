@@ -1,26 +1,15 @@
-import { useState, useContext} from 'react'
+import { useState} from 'react'
 import './App.css'
-import Clock from './components/Clock';
-import { LanguageContext } from './LanguageContext';
-function App() {
-  const [ language, setLanguage ] = useState("default");
+import {GithubUser} from './components/GithubUser'
+import FormUser from './components/FormUser'
 
-  const updateLanguage = (event) => {
-      setLanguage(event.target.value);
-      console.log(event.target.value);
-}
+function App() {
+
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
-    <div>
-  <select onChange={updateLanguage}>
-  <option value="default">Choose language here</option>
-  <option value="en">English</option>
-  <option value="es">Spanish</option>
-  <option value="it">Italian</option>
-  </select>
-    <Clock/>
-    </div>
-    </LanguageContext.Provider>
+    <>
+  <FormUser />
+    </>
   )
 }
 
