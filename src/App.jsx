@@ -1,14 +1,14 @@
 import { useState} from 'react'
 import './App.css'
-import {GithubUser} from './components/GithubUser'
-import FormUser from './components/FormUser'
+import {CurrentLocation} from './components/CurrentLocation'
+import UseCurrentLocation from './components/UseCurrentLocation'
 
 function App() {
 
 
   return (
     <>
-  <FormUser />
+  <CurrentLocation />
     </>
   )
 }
