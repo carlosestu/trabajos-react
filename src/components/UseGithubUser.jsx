@@ -13,7 +13,7 @@ function UseGithubUser( username ) {
             .then((res) => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
-                }
+                } 
                 return res.json();
             })
             .then((json) => setUser(json))
