@@ -1,21 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Link, Route} from 'react-router-dom';
-import InteractiveWelcome from './components/InteractiveWelcome';
-import Login from './components/Login';
-import Counter from './components/Counter';
-import Home from './components/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FormUser from './components/FormUser';
+import ShowGithubUser from './components/ShowGithubUser';
+import GithubUserList from './components/GithubUserList';
+import IndexMessage from './components/IndexMessage';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-          <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/InteractiveWelcome" element={<InteractiveWelcome />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/counter" element=<Counter cantidadRestar={1} reinicio={0} />/>
+    <div>
+      <Router>
+        <Routes>
+          <Route exact path="/List" element={<GithubUserList />} />
+          <Route index element={<IndexMessage />} />
+          <Route path="/users" element={<FormUser />} />
+          <Route path="/users/:userName" element={<ShowGithubUser />} />
         </Routes>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
